@@ -21,11 +21,11 @@
   ],
   "scripts": {
     "ng": "ng",
-    "build": "ng-packagr -p ng-package.json && npm run postbuild",
-    "publish:lib": "ng-packagr -p ng-package.json && npm run postbuild && cd dist && npm publish --access public",
+    "build": "ng-packagr -p ng-package.json && npm run postbuild && node fix-package.js",
+    "publish:lib": "ng-packagr -p ng-package.json && npm run postbuild && node fix-package.js && cd dist && npm publish --access public",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run clean && npm run build",
     "postbuild": "rm -rf dist/esm2022",
     "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/stats.json",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
@@ -51,10 +51,10 @@
   },
   "sideEffects": false,
   "type": "module",
-  "main": "./dist/fesm2022/ngfly/translate-db.mjs",
-  "module": "./dist/fesm2022/ngfly/translate-db.mjs",
+  "main": "./dist/fesm2022/ngfly-translate-db.mjs",
+  "module": "./dist/fesm2022/ngfly-translate-db.mjs",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist/"
+    "dist"
   ]
 }
