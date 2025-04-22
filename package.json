@@ -1,6 +1,6 @@
 {
   "name": "@ngfly/translate-db",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "description": "Angular translation library using IndexedDB for storage",
   "author": {
@@ -22,6 +22,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng-packagr -p ng-package.json && npm run postbuild",
+    "publish:lib": "ng-packagr -p ng-package.json && npm run postbuild && cd dist && npm publish --access public",
     "clean": "rm -rf dist",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
